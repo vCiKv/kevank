@@ -3,15 +3,17 @@ import { Inter } from "next/font/google";
 import { Heading, SectionSubtitle, SectionTitle } from "./components/title";
 import { Box } from "./components/common";
 import { twJoin } from "tailwind-merge";
+import Hero from "./hero";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
     <main>
-      <section className="container mx-auto my-16">
+      {/* <section className="container mx-auto my-16">
         <SectionTitle title={"hello world"} center subtitle={"im testing"} />
-      </section>
+      </section> */}
+      <Hero/>
       <section className="container mx-auto my-16">
         <div className="flex flex-wrap justify-around gap-2">
           {[1, 2, 3].map((num) => (
@@ -70,10 +72,10 @@ export default function Home() {
         <div className="flex justify-around gap-8 my-10">
           {[14, 35, 46,4].map((num) => (
             <Box className="flex flex-col">
-              <div className="bg-blue-200 block h-20 w-full rounded-sm"></div>
+              <div className="block w-full h-20 bg-blue-200 rounded-sm"></div>
               <div className="my-4 tracking-tight">
-                <p className="text-sm font-light -my-1">location</p>
-                <h3 className="text-2xl font-medium mb-2">Title</h3>
+                <p className="-my-1 text-sm font-light">location</p>
+                <h3 className="mb-2 text-2xl font-medium">Title</h3>
               </div>
               <p className="leading-relaxed">
                 Ea accusam. Rebum ipsum et stet diam sed nonumy diam, et
