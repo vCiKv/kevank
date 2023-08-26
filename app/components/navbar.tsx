@@ -40,7 +40,7 @@ const MainNav = (props: { isMini?: boolean }) => {
   return (
     <div
       className={twMerge(
-        "px-6 py-3 text-black border backdrop-blur-[3px] border-white bg-white/30",
+        "z-50 px-6 py-3 text-black border backdrop-blur-[3px] border-white bg-white/30",
         props.isMini
           ? "z-50 top-0 fixed w-4/5 mt-2 -translate-x-1/2 rounded-full shadow-md left-1/2"
           : "w-full rounded-b-md"
