@@ -50,7 +50,7 @@ const MainNav = (props: { isMini?: boolean }) => {
         <Logo />
         <div className="flex items-center justify-center px-3 gap-x-6">
           {navMenu.map((nav) => (
-            <Link title={nav.name} href={nav.link} />
+            <Link title={nav.name} href={nav.link}  key={nav.name} />
           ))}
         </div>
       </div>

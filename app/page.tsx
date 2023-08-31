@@ -103,7 +103,7 @@ export default function Home() {
         <SectionTitle title={"Our Services"} />
         <div className="flex justify-start gap-2 my-12 flex-nowrap">
           {ourServices.map((services, index) => (
-            <Box className="p-0 duration-300 ease-in w-72 hover:bg-accent hover:from-transparent hover:to-transparent hover:text-white">
+            <Box key={"service-"+index} className="p-0 duration-300 ease-in w-72 hover:bg-accent hover:from-transparent hover:to-transparent hover:text-white">
               <div className={twJoin("flex flex-nowrap h-full")}>
                 <div className="w-full p-4">
                   <SectionSubtitle title={services.title} />
@@ -134,7 +134,7 @@ export default function Home() {
         <SectionTitle title={"Our Projects"} center />
         <div className="flex items-stretch justify-start gap-8 my-10 flex-nowrap">
           {ourProjects.map((project) => (
-            <div className="w-[46%] h-full group/image">
+            <div key={"project-"+project.title} className="w-[46%] h-full group/image">
               <Box className="flex flex-col h-full">
                 <div className="relative block object-contain w-full duration-200 ease-in scale-95 rounded-md h-28 group-hover/image:scale-100">
                   <Image
