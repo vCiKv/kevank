@@ -1,5 +1,5 @@
 import FloatingBlob from '@/components/floatingBlob'
-import Navbar from '@/components/navbar'
+import Navbar, { Footer } from '@/components/navbar'
 import './globals.css'
 
 
@@ -16,9 +16,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-      <FloatingBlob/>
-      <Navbar/>
+        <FloatingBlob/>
+        <Navbar/>
         {children}
+        <Footer/>
       </body>
     </html>
   )

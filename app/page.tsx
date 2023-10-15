@@ -1,13 +1,18 @@
-import Image from "@/components/image";
+import Image from "@/components/elements/image";
 import { Inter } from "next/font/google";
-import { Heading, SectionSubtitle, SectionTitle } from "./components/title";
-import { Box, Link } from "./components/common";
+import {
+  Heading,
+  HeroTitle,
+  SectionSubtitle,
+  SectionTitle,
+} from "@/components/elements/title";
+import Link from "@/components/elements/link";
 import { twJoin } from "tailwind-merge";
-import Hero from "./hero";
+// import Hero from "./hero";
+import Box from "@/components/elements/box";
 
 const inter = Inter({ subsets: ["latin"] });
-
-export default function Home() {
+const OurServices = () => {
   const ourServices = [
     {
       title: "Building construction and Maintenance services",
@@ -26,134 +31,93 @@ export default function Home() {
       paragraph: "tempor no eos takimata.",
     },
   ];
-  const ourProjects = [
-    {
-      title: "Title",
-      location: "Alakuko, Lagos.",
-      image: "/img/kvk.png",
-      paragraph:
-        "Complete renovation of building and facilities upgrade of pipelines, tanks, power generator and electrical systems at Zone 4 service station,",
-    },
-    {
-      title: "Title",
-      location: "abuja",
-      image: "/img/kvk.png",
-      paragraph:
-        "Construction of 15 units of fully detached houses at Nigerian union of teachers (NUT) Estate, Lugbe,  Abuja",
-    },
-    {
-      title: "Title",
-      location: "lagos",
-      image: "/img/kvk.png",
-      paragraph:
-        "Plumbing, water treatment and Renovation work at conoil expatriates quarters (block of 30 flats) at Victoria Island Lagos.",
-    },
-  ];
-
+  return (
+    <div>
+      <div className="grid justify-center grid-cols-1 gap-2 my-12 md:justify-start md:grid-cols-4">
+        {ourServices.map((services, index) => (
+          <Box
+            key={"service-" + index}
+            className="w-full p-0 duration-300 ease-in hover:bg-accent hover:from-transparent hover:to-transparent hover:text-white"
+          >
+            <div className={twJoin("flex flex-nowrap h-full")}>
+              <div className="w-full p-4">
+                <SectionSubtitle title={services.title} />
+                <p className="mb-4 leading-relaxed">{services.paragraph}</p>
+              </div>
+              <div className="block w-8 h-full bg-accent rounded-r-md"></div>
+            </div>
+          </Box>
+        ))}
+      </div>
+    </div>
+  );
+};
+export default function Home() {
+  // <Hero />
+  // <OurServices/>
+  const Pill = ({ children }: { children: React.ReactElement | string }) => {
+    return (
+      <span className="px-5 py-2 text-sm font-medium text-center text-white rounded-full bg-primary">
+        {children}
+      </span>
+    );
+  };
   return (
     <main>
-      <Hero />
-      <section className="container mx-auto my-32">
-        <SectionTitle title={"Why Kevank?"} />
-        <p className="text-lg leading-relaxed">
-          We design, create, and deliver innovative engineering solutions to
-          enable our net-zero future. We serve the energy, defence, and other
-          industrial sectors. Design. Create. Deliver
-        </p>
-        <Heading title={"About Us"} />
-        <p className="text-lg leading-relaxed">
-          Kevank Nigeria Limited was incorporated in 2008 and commenced
-          operation the same year as projects, construction and facilities
-          management company. Kevank Nigeria LTD is here to address your
-          engineering needs, to meet your requirement and surpass your
-          expectation. We are major players in the facilities management field
-          and have been having facilities management contracts since 2008 to
-          date with First City Monument Bank (FCMB) PLC and Fidelity Bank PLC.
-          We have also executed Building Renovation works for Conoil PLC, Petrol
-          Station building and construction works for AA Rano Nig Limited, Zone
-          4 energy ltd and several building and construction works.
-          <br /><br/>
-          <Link title="learn more" className="my-2" />
-        </p>
-
-        <div className="flex flex-wrap justify-around gap-2 my-12">
-          <Box className="duration-300 ease-in w-full md:w-[48%] hover:bg-primary hover:border-none hover:from-transparent hover:to-transparent hover:text-white">
-            <div>
-              <Heading title={"Our Mission"} />
-              <p>
-                To become one of the leading multidisciplinary engineering
-                companies in building construction and facilities maintenance
-                through strategic technical alliances with indigenous.
-              </p>
+      <div className="bg-[url('/img/bw.jpg')] bg-cover bg-center bg-no-repeat min-w-screen min-h-screen w-full h-full bg-scroll">
+        <div className="container mx-auto">
+          <div className="flex pt-28">
+            <div className="w-3/5 ">
+              <HeroTitle
+                title={"KEVANK NIGERIA LIMITED"}
+                className="pl-10 md:pl-20"
+                subtitle={
+                  <>
+                    meet your requirement <br /> surpass your expectation
+                  </>
+                }
+              />
             </div>
-          </Box>
-          <Box className="duration-300 ease-in w-full md:w-[48%] hover:bg-primary hover:border-none hover:from-transparent hover:to-transparent hover:text-white">
-            <div>
-              <Heading title={"Our Vision"} />
-              <p>
-                To be number ONE in our chosen field providing quality
-                multidisciplinary service delivery with international standards
-                and specifications.
-              </p>
-            </div>
-          </Box>
-        </div>
-      </section>
-      <section className="container mx-auto my-32">
-        <SectionTitle title={"Our Services"} />
-        <div className="flex justify-start gap-2 my-12 flex-nowrap">
-          {ourServices.map((services, index) => (
-            <Box key={"service-"+index} className="p-0 duration-300 ease-in w-72 hover:bg-accent hover:from-transparent hover:to-transparent hover:text-white">
-              <div className={twJoin("flex flex-nowrap h-full")}>
-                <div className="w-full p-4">
-                  <SectionSubtitle title={services.title} />
-                  <p className="mb-4 leading-relaxed">{services.paragraph}</p>
-                </div>
-                <div className="block w-8 h-full bg-accent rounded-r-md"></div>
-              </div>
-            </Box>
-          ))}
-        </div>
-      </section>
-      {/* <section className="container mx-auto my-16">
-        <Box>
-          <SectionTitle title={"random facts"} center />
-          <div className="flex justify-around gap-8 my-10">
-            {[96, 91, 92].map((num) => (
-              <div className="flex flex-col">
-                <p className="text-5xl font-semibold text-accent">
-                  {Math.floor(num * Math.random())}
-                </p>
-                <p>Ea accusam.</p>
-              </div>
-            ))}
           </div>
-        </Box>
-      </section> */}
-      <section className="container mx-auto my-32">
-        <SectionTitle title={"Our Projects"} center />
-        <div className="flex items-stretch justify-start gap-8 my-10 flex-nowrap">
-          {ourProjects.map((project) => (
-            <div key={"project-"+project.title} className="w-[46%] h-full group/image">
-              <Box className="flex flex-col h-full">
-                <div className="relative block object-contain w-full duration-200 ease-in scale-95 rounded-md h-28 group-hover/image:scale-100">
-                  <Image
-                    src={project.image}
-                    className="object-cover w-full h-full"
-                  />
-                </div>
-                <div className="my-4 tracking-tight">
-                  <p className="-my-1 text-sm font-light capitalize">
-                    {project.location}
-                  </p>
-                  <h3 className="mb-2 text-2xl font-medium">{project.title}</h3>
-                </div>
-                <p className="leading-relaxed">{project.paragraph}</p>
-              </Box>
+          <div className="flex flex-wrap justify-center gap-12 p-6 md:justify-between md:flex-row-reverse">
+            <div className="text-right text-white">
+              <p className="text-sm font-semibold">Design. Create. Deliver</p>
+              <h4 className="text-6xl font-black">100+</h4>
+              <h6 className="text-xl capitalize">completed projects</h6>
+              <Link href="/projects" title={"see projects ->"} />
+
+              {/* <p>from 2008 15 years of experience</p> */}
             </div>
-          ))}
+            <Box className="space-y-6 bg-white/40 bg-none max-w-[250px]">
+              <Pill>about</Pill>
+              <p className="pb-4 text-lg leading-relaxed">
+                We design, create, and deliver innovative engineering solutions
+                to the energy, and other industrial sectors.
+              </p>
+              <Link href="/about" title={"learn more ->"} />
+            </Box>
+          </div>
+          <div className="py-12">
+            <hr className="w-4/5 mx-auto border-t-2 border-accent/60"></hr>
+          </div>
+          <div className="p-6">
+            <div className="text-right">
+              <Pill>services</Pill>
+              <p className="my-4 mb-8 text-5xl font-medium text-right text-white">
+                introduction text
+              </p>
+            </div>
+
+            <OurServices />
+          </div>
         </div>
-      </section>
+      </div>
+      <div className="w-full p-6 h-96 max-w-screen bg-primary/70">
+        <div className="text-6xl text-white capitalize pt-28">
+          <p>Get A quotation</p>
+          <Link href={"contact"} title={"get->"}></Link>
+        </div>
+      </div>
     </main>
   );
 }
