@@ -11,21 +11,28 @@ interface LinkType {
 }
 const linkTypes = {
   none: "",
-  nav: "font-bold hover:scale-105",
-  default: "font-bold text-md p-2 rounded-md hover:scale-100 scale-95 hover:bg-primary/20",
+  // nav: "font-bold hover:scale-105",
+  default: "font-bold text-md p-2 rounded-lg hover:scale-100 scale-95 hover:bg-primary/20 text-center flex-inline flex-nowrap hover:text-white",
+  nav: "font-bold text-md p-2 rounded-md hover:scale-100 scale-95 hover:bg-primary/20 text-center flex-inline flex-nowrap",
+
 };
 
-const Link = (props: LinkType) => {
+function Link(props: LinkType) {
+  const { className, type, title, href } = props;
   return (
     <NextLink
       className={twMerge(
-        linkTypes[props.type ?? "default"],
-        props.className ?? ""
+        linkTypes[type ?? "default"],
+        className ?? ""
       )}
-      href={props.href ?? "#"}
+      href={href ?? "#"}
     >
-      {props.title}
+      {title}
+      {(type === undefined || type === "default") &&
+        <span className="ml-3 inline-flex items-center justify-center size-6 p-0.5 rounded-full bg-primary/80 text-white">
+          {"->"}
+        </span>}
     </NextLink>
   );
-};
+}
 export default Link

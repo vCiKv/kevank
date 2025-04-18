@@ -1,30 +1,45 @@
+"use client"
 import Box from "@/components/elements/box";
 import Image from "@/components/elements/image";
-
 import { SectionTitle } from "@/components/elements/title";
+import { useState } from "react";
+import { twMerge } from "tailwind-merge";
 const ourProjects = [
   {
-    title: "Title",
+    title: "Title-1",
     location: "Alakuko, Lagos.",
     image: "/img/kvk.png",
     paragraph:
       "Complete renovation of building and facilities upgrade of pipelines, tanks, power generator and electrical systems at Zone 4 service station,",
-    tag:"knockdown and rebuild"
-    },
+    tag: "knockdown and rebuild",
+    startData: 2012,
+    endDate: 2013,
+    status: "ongoing",
+    client: "client_name",
+  },
   {
-    title: "Title",
+    title: "Title-2",
     location: "abuja",
     image: "/img/kvk.png",
     paragraph:
       "Construction of 15 units of fully detached houses at Nigerian union of teachers (NUT) Estate, Lugbe,  Abuja",
-    tag:"civil construction"
-    },
+    tag: "civil construction",
+    startData: 2012,
+    endDate: 2013,
+    status: "ongoing",
+    client: "client_name",
+  },
   {
-    title: "Title",
+    title: "Title-3",
     location: "lagos",
     image: "/img/kvk.png",
     paragraph:
       "Plumbing, water treatment and Renovation work at conoil expatriates quarters (block of 30 flats) at Victoria Island Lagos.",
+    startData: 2012,
+    endDate: 2013,
+    status: "ongoing",
+    client: "client_name",
+
   },
 ];
 const stats = [
@@ -37,7 +52,11 @@ const Projects = (props: {
   location: string;
   image: string;
   paragraph: string;
-  tag?:string
+  tag?: string;
+  startData: number;
+  endDate: number;
+  status: string;
+  client: string;
 }) => {
   return (
     <div className="h-full px-5 group/image md:px-0">
@@ -60,6 +79,13 @@ const Projects = (props: {
   );
 };
 export default function Page() {
+  const activeClass = "bg-primary text-white"
+  const [projectView, setProjectView] = useState(1)
+  const updateProjectView = (val: number) => {
+    if (val !== projectView) {
+      setProjectView(val)
+    }
+  }
   return (
     <main>
       <section className="container mx-auto my-36">
@@ -77,8 +103,23 @@ export default function Page() {
             ))}
           </div>
         </div>
+        <div className="bg-white rounded-full w-4/5 mx-auto h-12">
+
+          <div className="grid grid-cols-3 text-sm md:text-lg justify-center items-center h-full gap-1">
+            <button className={twMerge("h-full rounded-full px-2 hover:bg-primary/50 hover:text-white cursor-pointer", projectView === 1 ? activeClass : "")} onClick={() => updateProjectView(1)}>
+              Facilities Management
+            </button>
+            <button className={twMerge("h-full rounded-full px-2 hover:bg-primary/50 hover:text-white cursor-pointer", projectView === 2 ? activeClass : "")} onClick={() => updateProjectView(2)}>
+              Construction
+            </button>
+            <button className={twMerge("h-full rounded-full px-2 hover:bg-primary/50 hover:text-white cursor-pointer", projectView === 3 ? activeClass : "")} onClick={() => updateProjectView(3)}>
+              Real Estate
+            </button>
+          </div>
+        </div>
+
         <div className="grid items-stretch justify-start grid-cols-1 gap-8 my-10 md:grid-cols-3 flex-nowrap">
-          {ourProjects.map((project) => <Projects key={"project-"+project.title} {...project}/>)}
+          {ourProjects.map((project) => <Projects key={"project-" + project.title} {...project} />)}
         </div>
       </section>
     </main>

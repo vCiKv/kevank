@@ -41,28 +41,28 @@ const Logo = () => {
   );
 };
 
-const MainNav = (props: { isMini?: boolean }) => {
+function MainNav(props: { isMini?: boolean; }) {
   return (
     <div
       className={twMerge(
-        "z-50 px-6 py-3 text-white font-extrabold border backdrop-blur-[3px] border-white bg-primary/20",
+        "z-50 px-1.5 md:px-6 py-3 text-white font-extrabold border backdrop-blur-[3px] border-white bg-primary/20",
         props.isMini
-          ? "top-0 fixed w-4/5 mt-2 -translate-x-1/2 rounded-lg shadow-md left-1/2"
+          ? "top-0 fixed md:w-4/5 w-5/6 mt-2 -translate-x-1/2 rounded-2xl shadow-md left-1/2"
           : "w-[95vw] mx-auto rounded-b-md min-w-[350px]"
       )}
     >
       <div className="flex flex-wrap justify-around gap-y-4">
         <Logo />
-        <div className="flex items-center justify-center px-3 text-base md:text-xl gap-x-4 md:gap-x-6">
+        <div className="flex items-center justify-center px-1.5 md:px-3 text-base md:text-xl gap-x-4 md:gap-x-6">
           {navMenu.map((nav) => (
-            <Link title={nav.name} href={nav.link} key={nav.name} />
+            <Link title={nav.name} href={nav.link} key={nav.name} type="nav" />
           ))}
         </div>
       </div>
     </div>
   );
-};
-const Navbar = () => {
+}
+function Navbar() {
   const { y } = useScrollPositions();
   return (
     <nav className="z-50 w-full text-center">
@@ -70,18 +70,18 @@ const Navbar = () => {
       {/* {y > 100 && <MainNav isMini />} */}
     </nav>
   );
-};
-export const Footer = ()=>{
-  return(
+}
+export function Footer() {
+  return (
     <footer className="py-10 bg-primary/90">
       <div>
-      <div className="flex items-center justify-center px-3 text-base text-white md:text-xl gap-x-4 md:gap-x-6">
+        <div className="flex items-center justify-center px-3 text-base text-white md:text-xl gap-x-4 md:gap-x-6">
           {navMenu.map((nav) => (
-            <Link title={nav.name} href={nav.link} key={nav.name} />
+            <Link title={nav.name} href={nav.link} key={nav.name} type="nav" />
           ))}
         </div>
       </div>
     </footer>
-  )
+  );
 }
 export default Navbar;

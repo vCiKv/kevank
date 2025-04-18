@@ -1,14 +1,15 @@
+import React from "react";
 import { ClassNameValue, twJoin } from "tailwind-merge";
 
-interface SectionTitleProps {
-  title: string | JSX.Element;
-  subtitle?: string | JSX.Element;
+export interface SectionTitleProps {
+  title: string | React.ReactElement;
+  subtitle?: string | React.ReactElement;
   center?: boolean;
 }
 interface HeroTitleProps extends SectionTitleProps {
   className?: string;
 }
-export const HeroTitle = (props: HeroTitleProps) => {
+export function HeroTitle(props: HeroTitleProps) {
   return (
     <div className={props?.className}>
       <h1
@@ -31,8 +32,8 @@ export const HeroTitle = (props: HeroTitleProps) => {
       )}
     </div>
   );
-};
-export const SectionTitle = (props: SectionTitleProps) => {
+}
+export function SectionTitle(props: SectionTitleProps) {
   return (
     <>
       <h1
@@ -49,8 +50,8 @@ export const SectionTitle = (props: SectionTitleProps) => {
       )}
     </>
   );
-};
-export const Heading = (props: SectionTitleProps) => {
+}
+export function Heading(props: SectionTitleProps) {
   return (
     <>
       <h2
@@ -73,8 +74,8 @@ export const Heading = (props: SectionTitleProps) => {
       )}
     </>
   );
-};
-export const SectionSubtitle = (props: Omit<SectionTitleProps, "subtitle">) => {
+}
+export function SectionSubtitle(props: Omit<SectionTitleProps, "subtitle">) {
   return (
     <h4
       className={twJoin(
@@ -85,7 +86,7 @@ export const SectionSubtitle = (props: Omit<SectionTitleProps, "subtitle">) => {
       {props.title}
     </h4>
   );
-};
+}
 
 export const P = ({
   children,

@@ -26,13 +26,12 @@ const useMousePosition = (delayMs?: number): MouseCord => {
 
   return mousePosition;
 };
-const FloatingBlob = ({
-  duration = 2000,
-  size = 250,
+function FloatingBlob({
+  duration = 2000, size = 250,
 }: {
   size?: number;
   duration?: number;
-}) => {
+}) {
   const mousePos = useMousePosition();
   const { x, y } = mousePos;
   // const moveStyle = useSpring({
@@ -43,20 +42,18 @@ const FloatingBlob = ({
   return (
     <div className="w-full max-w-screen">
       <div
-        className={
-          "-z-50 animate-slowRotate fixed overflow-hidden bg-gradient-to-l from-purple-600 to-sky-800 rounded-full"
-        }
+        className={"-z-50 animate-slowRotate fixed overflow-hidden bg-gradient-to-l from-purple-600 to-sky-800 rounded-full md:size-[250px] size-[100px]"}
         style={{
           transform: `translate(${-50}%,${-50}%)`,
-          left:x+"px",
-          top:y+"px",
-          height: size ?? 250 + "px",
-          width: size ?? 250 + "px",
+          left: x + "px",
+          top: y + "px",
+          // height: size ?? 250 + "px",
+          // width: size ?? 250 + "px",
           // ...moveStyle,
         }}
       ></div>
       <div className="h-full w-full max-h-screen max-w-screen fixed top-0 overflow-y-hidden -z-30 backdrop-blur-[200px]"></div>
     </div>
   );
-};
+}
 export default FloatingBlob;

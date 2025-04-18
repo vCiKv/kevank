@@ -5,7 +5,7 @@ export default function About() {
   return (
     <main>
       <section className="my-36">
-        <div className="container mx-auto mb-10">
+        <div className="container mx-auto pb-10">
           <SectionTitle title={"Why Kevank?"} />
           <Heading title={"About Us"} />
           <P>
@@ -46,8 +46,14 @@ export default function About() {
             </Box>
           </div>
         </div>
-        <div className="container mx-auto">
-          <Heading title={"FAQ"} subtitle={"Frequently Asked Questions"}/>
+        <div className="container mx-auto py-10">
+          <Heading title={"Kevank: Building Your Vision, Managing Your Future"} subtitle={"Your Reliable Partner in Building and Beyond"} />
+          <P>
+            Since our inception in 2008, Kevank Nigeria Limited has consistently delivered exceptional projects and facilities management services. Our enduring relationships with FCMB and Fidelity Bank, coupled with our successful execution of construction and renovation works for companies like Conoil and AA Rano, underscore our reliability and commitment to surpassing your requirements. Choose Kevank Nigeria Limited to experience our dedication to meeting and exceeding your expectations
+          </P>
+          <div className="pt-8">
+            <button>get a quote from us</button>
+          </div>
         </div>
       </section>
     </main>
