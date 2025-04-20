@@ -1,5 +1,29 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "ApfelGrotezk";
+  font-display: auto;
+  font-stretch: normal;
+  src: url("/fonts/ApfelGrotezk-Regular.otf") format("opentype");
+}
+@font-face {
+  font-family: "ApfelGrotezk-Brukt";
+  font-display: auto;
+  font-stretch: normal;
+  src: url("/fonts/ApfelGrotezk-RegularBrukt.otf") format("opentype");
+}
+@font-face {
+  font-family: "neue-haas-display";
+  font-display: auto;
+  font-stretch: normal;
+  src: url("/fonts/NeueHaasDisplayMediu.ttf") format("truetype");
+}
+@font-face {
+  font-family: "NectoMono";
+  font-display: auto;
+  font-stretch: normal;
+  src: url("../public/fonts/NectoMono-Regular.otf") format("opentype");
+}
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -10,14 +34,23 @@
   --image-gradient-conic:conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops));
   --color-primary:#0A2647;
   --color-accent:#850E35;
+  --font-ApfelGrotezk: "ApfelGrotezk", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; 
+  --font-ApfelGrotezk-Brukt: "ApfelGrotezk-Brukt", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-NectoMono: "NectoMono", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-neue: "neue-haas-display", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
 }
 body {
   color: rgb(var(--foreground-rgb));
+
   /* background: linear-gradient(
       to bottom,
       transparent,
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb)); */
-    @apply bg-slate-600/30;
+    @apply bg-slate-600/30 font-neue;
+}
+h1,h2,h3,h4,h5,h6{
+  @apply font-ApfelGrotezk;
 }

@@ -13,7 +13,7 @@ const linkTypes = {
   none: "",
   // nav: "font-bold hover:scale-105",
   default: "font-bold text-md p-2 rounded-lg hover:scale-100 scale-95 hover:bg-primary/20 text-center flex-inline flex-nowrap hover:text-white",
-  nav: "font-bold text-md p-2 rounded-md hover:scale-100 scale-95 hover:bg-primary/20 text-center flex-inline flex-nowrap",
+  nav: "font-bold text-md p-2 rounded-md hover:scale-100 scale-95 hover:bg-primary/20 text-center flex-inline flex-nowrap font-NectoMono",
 
 };
 
