@@ -14,6 +14,10 @@ import { useState } from "react";
 const inter = Inter({ subsets: ["latin"] });
 function OurServices() {
   const [currentService, setCurrentService] = useState(0)
+  const [showSelector, setShowSelector] = useState(false)
+  const toggleSelector = () => {
+    setShowSelector(p => !p)
+  }
   const ourServices = [
     {
       title: "Construction & Maintenance",
@@ -55,19 +59,31 @@ function OurServices() {
   return (
     <div>
       <div className="grid justify-center grid-cols-1 gap-x-4 gap-y-8 py-12 md:grid-cols-2">
-        <Box className="bg-primary/90 text-white capitalize text-md">
-          <menu className="flex flex-col items-start justify-between h-full py-16 ">
-            {ourServices.map((services, index) => (
-              <li
-                key={"service-title-" + index}
-                onClick={() => setCurrentService(index)}
-                className={twMerge("opacity-65 cursor-pointer", currentService === index ? "opacity-100 text-lg font-bold " : "")}
-              >
-                —{"   "}0{index + 1} {services.title}
-              </li>
-            ))}
-          </menu>
-        </Box>
+        <div className="flex flex-col gap-4">
+          <Box className="bg-primary/90 text-white capitalize text-md p-4 md:hidden block cursor-pointer" >
+            <div onClick={toggleSelector} className="flex flex-nowrap justify-between h-full w-full">
+              <span>
+                —{"   "}0{currentService + 1} {ourServices[currentService].title}
+              </span>
+              <span >
+                arrow_down
+              </span>
+            </div>
+          </Box>
+          <Box className={twMerge("bg-primary/90 text-white capitalize text-md md:block md:h-full", showSelector ? "block" : "hidden")}>
+            <menu className="flex flex-col items-start justify-between h-full gap-2 py-6 md:py-16 ">
+              {ourServices.map((services, index) => (
+                <li
+                  key={"service-title-" + index}
+                  onClick={() => { setCurrentService(index); toggleSelector(); }}
+                  className={twMerge("opacity-65 cursor-pointer", currentService === index ? "opacity-100 text-lg font-bold " : "")}
+                >
+                  —{"   "}0{index + 1} {services.title}
+                </li>
+              ))}
+            </menu>
+          </Box>
+        </div>
         <Box
           className="w-full p-0 duration-300 ease-in bg-gradient-to-r hover:from-bg-accent/80 hover:to-bg-accent hover:text-white min-h-[400px]"
         >
