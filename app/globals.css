@@ -32,8 +32,11 @@
 @theme{
   --image-gradient-radial: radial-gradient(var(--tw-gradient-stops));
   --image-gradient-conic:conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops));
-  --color-primary:#0A2647;
-  --color-accent:#850E35;
+  /* --color-primary:#0A2647; */
+  /* --color-accent:#850E35; */   
+  --color-primary:#B02A2B;
+  --color-accent:#0A2647;
+
   --font-ApfelGrotezk: "ApfelGrotezk", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; 
   --font-ApfelGrotezk-Brukt: "ApfelGrotezk-Brukt", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-NectoMono: "NectoMono", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -53,4 +56,16 @@ body {
 }
 h1,h2,h3,h4,h5,h6{
   @apply font-ApfelGrotezk;
+}
+.css-dots::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: calc(100% + 2rem);
+  z-index: -1;
+  pointer-events: none;
+  background-image: radial-gradient(#E5E7E9 2px, transparent 0);
+  background-size: 30px 30px;
+  background-position: -18px 0;
 }

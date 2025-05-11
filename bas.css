@@ -1,0 +1,12 @@
+.css-dots::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: calc(100% + 2rem);
+  z-index: -1;
+  pointer-events: none;
+  background-image: radial-gradient(#E5E7E9 2px, transparent 0);
+  background-size: 30px 30px;
+  background-position: -18px 0;
+}

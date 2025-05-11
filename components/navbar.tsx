@@ -33,10 +33,17 @@ const navMenu = [
   { name: "projects", link: "/projects" },
   { name: "contact", link: "/contact" },
 ];
-const Logo = () => {
+export function Logo(props: { size?: number }) {
+  const { size } = props
   return (
     <NextLink href="/">
-      <h1 className="text-3xl">LOGO</h1>
+      <img
+        alt="logo"
+        src={"/logo.png"}
+        width={size ?? 48}
+        height={size ?? 48}
+
+      />
     </NextLink>
   );
 };

@@ -7,7 +7,7 @@ interface ImageProps {
 }
 function Image(props: ImageProps) {
   return (
-    <NextImage className={props?.className} alt={props?.alt ?? ""} src={props.src} fill />
+    <NextImage {...props} className={"rounded-xl" + props?.className} alt={props?.alt ?? ""} src={props.src} fill />
   )
 }
 export default Image
