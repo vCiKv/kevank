@@ -15,87 +15,171 @@ function ProjectPill({ status }: { status: string | "ongoing" | "completed" }) {
     </span>
   );
 };
-const ourProjects = [
-  {
-    title: "Title-1",
-    location: "Alakuko, Lagos.",
-    image: ["/img/kvk.png",],
-    paragraph:
-      "Complete renovation of building and facilities upgrade of pipelines, tanks, power generator and electrical systems at Zone 4 service station,",
-    tag: "knockdown and rebuild",
-    startDate: 2012,
-    endDate: 2013,
-    status: "ongoing",
-    client: "client_name",
-  },
-  {
-    title: "Title-2",
-    location: "abuja",
-    image: ["/img/kvk.png",],
-    paragraph:
-      "Construction of 15 units of fully detached houses at Nigerian union of teachers (NUT) Estate, Lugbe,  Abuja",
-    tag: "civil construction",
-    startDate: 2012,
-    endDate: 2013,
-    status: "completed",
-    client: "client_name",
-  },
-  {
-    title: "Title-3",
-    location: "lagos",
-    image: ["/img/kvk.png",],
-    paragraph:
-      "Plumbing, water treatment and Renovation work at conoil expatriates quarters (block of 30 flats) at Victoria Island Lagos.",
-    startDate: 2012,
-    endDate: 2013,
-    status: "ongoing",
-    client: "client_name",
+function ProjectConstruction(props: { isHidden?: boolean }) {
+  const ourProjectsConstruction = [
+    {
+      title: "Title-1",
+      location: "Alakuko, Lagos.",
+      image: ["/img/kvk.png",],
+      paragraph:
+        "Complete renovation of building and facilities upgrade of pipelines, tanks, power generator and electrical systems at Zone 4 service station,",
+      tag: ["knockdown and rebuild"],
+      startDate: 2012,
+      endDate: 2013,
+      status: "ongoing",
+      client: "client_name",
+    },
+    {
+      title: "Title-2",
+      location: "abuja",
+      image: ["/img/kvk.png",],
+      paragraph:
+        "Construction of 15 units of fully detached houses at Nigerian union of teachers (NUT) Estate, Lugbe,  Abuja",
+      tag: "civil construction",
+      startDate: 2012,
+      endDate: 2013,
+      status: "completed",
+      client: "client_name",
+    },
+    {
+      title: "Title-3",
+      location: "lagos",
+      image: ["/img/kvk.png",],
+      paragraph:
+        "Plumbing, water treatment and Renovation work at conoil expatriates quarters (block of 30 flats) at Victoria Island Lagos.",
+      startDate: 2012,
+      endDate: 2013,
+      status: "ongoing",
+      client: "client_name",
 
-  },
-];
+    },
+  ];
+  if (props.isHidden) {
+    return <></>
+  } else {
+    return (
+      <div className="grid items-stretch justify-start grid-cols-1 gap-8 my-10 md:grid-cols-3 flex-nowrap">
+        {ourProjectsConstruction.map((project) => <div key={"project-" + project.title} className="h-full px-5 group/image md:px-0">
+          <Box className="flex flex-col h-full">
+            <div className="relative block object-contain w-full duration-200 ease-in scale-95 h-56 group-hover/image:scale-100">
+              <Image src={project.image[0]} className="object-cover w-full h-full" />
+            </div>
+            <div className="py-4 tracking-tight">
+              <p className="py-1 text-sm font-light capitalize">
+                {project.location}
+              </p>
+              <h3 className="pb-2 text-2xl font-medium">{project.title}</h3>
+              <h6><b className="font-semibold">Client: </b> {project.client}</h6>
+              <div className="flex flex-col items-end w-full justify-center text-sm gap-1">
+                <span><b className="font-semibold">Start Date: </b>{project.startDate}</span>
+                <span><b className="font-semibold">End Date: </b>{project.endDate}</span>
+                <ProjectPill status={project.status} />
+              </div>
+
+            </div>
+            <p className="pb-10 leading-relaxed">{project.paragraph}</p>
+            {/* {props.tag&&<div className="px-3 py-1 text-xs font-medium text-center text-white rounded-full w-28 bg-primary">
+          {props.tag}
+        </div>} */}
+          </Box>
+        </div>
+        )}
+      </div>
+    )
+  }
+}
+function ProjectFacilities(props: { isHidden?: boolean }) {
+
+  const ourProjectsFacilities = [
+    {
+      location: "Pan Nigeria",
+      paragraph:
+        "Maintenance  of air conditioners and generators in various branches pan Nigeria",
+      startDate: 2008,
+      endDate: 2020,
+      status: "completed",
+      client: "FIRST CITY MONUMENTAL BANK",
+    },
+    {
+      location: "Pan Nigeria",
+      paragraph:
+        "Maintenance of air conditioners",
+      startDate: 2009,
+      endDate: 2020,
+      status: "completed",
+      client: "FIDELITY BANK",
+    },
+    {
+      location: "Pan Nigeria",
+      paragraph:
+        "Maintenance  of air conditioners and generators pan Nigeria",
+      startDate: 2008,
+      endDate: 2013,
+      status: "completed",
+      client: "ECO BANK",
+    },
+    {
+      location: "Port Harcourt",
+      paragraph:
+        "Maintenance  of air conditioners at Port Harcourt",
+      startDate: 2019,
+      endDate: 2011,
+      status: "completed",
+      client: "Grantee Trust Bank(GTB)",
+    },
+    {
+      location: "Lagos",
+      paragraph:
+        "Maintenance  of air conditioners",
+      startDate: 2010,
+      endDate: 2012,
+      status: "completed",
+      client: "Global Ocean Ltd",
+    },
+    {
+      location: "Lagos",
+      paragraph:
+        "Maintenance  of air conditioners and Generators",
+      startDate: 2010,
+      endDate: 2012,
+      status: "completed",
+      client: "DIVINE PLUS HOTEL",
+    },
+
+  ];
+  if (props.isHidden) {
+    return <></>
+  } else {
+    return (
+      <div className="grid items-stretch justify-start grid-cols-1 gap-8 my-10 md:grid-cols-3 flex-nowrap">
+        {ourProjectsFacilities.map((project, index) => <div key={"facilities-" + index}>
+          <Box className="flex flex-col h-full">
+            <div className="py-4 tracking-tight">
+              <p className="py-1 text-sm font-light capitalize">
+                {project.location}
+              </p>
+              <h6 className="font-medium text-lg">{project.client}</h6>
+              <div className="flex flex-col items-end w-full justify-center text-sm gap-1">
+                <span>{project.startDate} - {project.endDate}</span>
+                <ProjectPill status={project.status} />
+              </div>
+            </div>
+            <p className="pb-10 leading-relaxed">{project.paragraph}</p>
+            {/* {props.tag&&<div className="px-3 py-1 text-xs font-medium text-center text-white rounded-full w-28 bg-primary">
+          {props.tag}
+        </div>} */}
+          </Box>
+        </div>)}
+      </div>
+    )
+  }
+}
 const stats = [
   { text: "projects", value: "100+", icon: "icon" },
   { text: "clients", value: "60+", icon: "icon" },
   { text: "employees", value: "20+", icon: "icon" },
 ];
-const Projects = (props: {
-  title: string;
-  location: string;
-  image: string[];
-  paragraph: string;
-  tag?: string;
-  startDate: number;
-  endDate: number;
-  status: string;
-  client: string;
-}) => {
-  return (
-    <div className="h-full px-5 group/image md:px-0">
-      <Box className="flex flex-col h-full">
-        <div className="relative block object-contain w-full duration-200 ease-in scale-95 h-56 group-hover/image:scale-100">
-          <Image src={props.image[0]} className="object-cover w-full h-full" />
-        </div>
-        <div className="py-4 tracking-tight">
-          <p className="py-1 text-sm font-light capitalize">
-            {props.location}
-          </p>
-          <h3 className="pb-2 text-2xl font-medium">{props.title}</h3>
-          <h6><b className="font-semibold">Client: </b> {props.client}</h6>
-          <div className="flex flex-col items-end w-full justify-center text-sm gap-1">
-            <span><b className="font-semibold">Start Date: </b>{props.startDate}</span>
-            <span><b className="font-semibold">End Date: </b>{props.endDate}</span>
-            <ProjectPill status={props.status} />
-          </div>
 
-        </div>
-        <p className="pb-10 leading-relaxed">{props.paragraph}</p>
-        {/* {props.tag&&<div className="px-3 py-1 text-xs font-medium text-center text-white rounded-full w-28 bg-primary">
-          {props.tag}
-        </div>} */}
-      </Box>
-    </div>
-  );
-};
 export default function Page() {
   const activeClass = "bg-primary text-white"
   const [projectView, setProjectView] = useState(1)
@@ -136,9 +220,9 @@ export default function Page() {
           </div>
         </div>
 
-        <div className="grid items-stretch justify-start grid-cols-1 gap-8 my-10 md:grid-cols-3 flex-nowrap">
-          {ourProjects.map((project) => <Projects key={"project-" + project.title} {...project} />)}
-        </div>
+        <ProjectConstruction isHidden={projectView != 1} />
+        <ProjectFacilities isHidden={projectView != 2} />
+
       </section>
     </main>
   );

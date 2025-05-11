@@ -1,15 +1,10 @@
 "use client"
-import { Inter } from "next/font/google";
-import { twJoin, twMerge } from "tailwind-merge";
 import Link from "@/components/elements/link";
 import Box from "@/components/elements/box";
-import {
-  Heading,
-  SectionSubtitle,
-  SectionTitle,
-  SectionTitleProps,
-} from "@/components/elements/title";
+import { Logo } from "@/components/navbar";
+import { Inter } from "next/font/google";
 import { useState } from "react";
+import { twJoin, twMerge } from "tailwind-merge";
 
 const inter = Inter({ subsets: ["latin"] });
 function OurServices() {
@@ -58,13 +53,18 @@ function OurServices() {
   // );
   return (
     <div>
-      <div className="grid justify-center grid-cols-1 gap-x-4 gap-y-8 py-12 md:grid-cols-2">
-        <div className="flex flex-col gap-4">
+      <div className="grid justify-center grid-cols-1 gap-x-4 gap-y-8 py-12 md:grid-cols-2 lg:grid-cols-3">
+        <div className="flex flex-col gap-4 ">
           <Box className="bg-primary/90 text-white capitalize text-md p-4 md:hidden block cursor-pointer" >
             <div onClick={toggleSelector} className="flex flex-nowrap justify-between h-full w-full">
-              <span>
-                —{"   "}0{currentService + 1} {ourServices[currentService].title}
-              </span>
+              <div className="flex gap-1.5">
+                <span className="flex flex-nowrap">
+                  —{"   "}0{currentService + 1}
+                </span>
+                <span>
+                  {ourServices[currentService].title}
+                </span>
+              </div>
               <span >
                 arrow_down
               </span>
@@ -85,7 +85,7 @@ function OurServices() {
           </Box>
         </div>
         <Box
-          className="w-full p-0 duration-300 ease-in bg-gradient-to-r hover:from-bg-accent/80 hover:to-bg-accent hover:text-white min-h-[400px]"
+          className="w-full p-0 duration-300 ease-in bg-gradient-to-r hover:from-bg-accent/80 hover:to-bg-accent hover:text-white min-h-[400px] lg:col-span-2"
         >
           <div className={twJoin("flex flex-nowrap h-full")}>
             <div className="w-full p-4">
@@ -99,7 +99,7 @@ function OurServices() {
               {/* <SectionSubtitle title={ourServices[currentService].title} /> */}
               <p className="mb-4 leading-relaxed">{ourServices[currentService].paragraph}</p>
             </div>
-            <div className="block w-8 h-full bg-accent rounded-r-xl"></div>
+            <div className="block w-8 h-full bg-primary rounded-r-xl"></div>
           </div>
         </Box>
 
@@ -107,31 +107,30 @@ function OurServices() {
     </div>
   );
 };
-interface HeroTitleProps extends SectionTitleProps {
-  className?: string;
-}
 
-function HeroTitle(props: HeroTitleProps) {
+
+function HeroTitle() {
   return (
-    <div className={props?.className}>
-      <h1
-        className={twJoin(
-          "text-accent mt-3 mb-1 text-7xl md:text-8xl font-medium -tracking-wider",
-          props.center ? "text-center" : ""
-        )}
-      >
-        {props.title}
-      </h1>
-      {props.subtitle && (
-        <h4
-          className={twJoin(
-            "text-black/80 mt-1 mb-5 text-2xl font-semibold italic ",
-            props.center ? "text-center" : ""
-          )}
-        >
-          {props.subtitle}
-        </h4>
-      )}
+    <div className="pl-10 md:pl-20">
+      <div className="flex flex-col">
+        <Logo size={128} />
+        <div>
+          <h1
+            className={
+              "text-accent mt-3 mb-1 text-xl font-medium -tracking-wider"
+            }
+          >
+            KEVANK NIGERIA LIMITED
+          </h1>
+          <h4
+            className={
+              "md:text-black/80 text-white mt-1 mb-5 text-lg font-semibold italic "
+            }
+          >
+            meet your requirement <br /> surpass your expectation
+          </h4>
+        </div>
+      </div>
     </div>
   );
 };
@@ -150,17 +149,9 @@ export default function Home() {
     <main>
       <div className="bg-[url('/img/bw.jpg')] bg-cover bg-center bg-no-repeat min-w-screen min-h-screen w-full h-full bg-scroll">
         <div className="container mx-auto">
-          <div className="flex pt-28">
-            <div className="w-3/5 ">
-              <HeroTitle
-                title={"KEVANK NIGERIA LIMITED"}
-                className="pl-10 md:pl-20"
-                subtitle={
-                  <>
-                    meet your requirement <br /> surpass your expectation
-                  </>
-                }
-              />
+          <div className="flex pt-40">
+            <div className="w-3/5">
+              <HeroTitle />
             </div>
           </div>
           <div className="flex flex-wrap justify-center gap-12 p-6 md:justify-between md:flex-row-reverse">
