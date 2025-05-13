@@ -1,9 +1,9 @@
 "use client";
 import { twMerge } from "tailwind-merge";
 import Link from "./elements/link";
-import { default as NextLink } from "next/link";
 
 import { useLayoutEffect, useState } from "react";
+import Logo from "./logo";
 
 export const useScrollPositions = () => {
   const [scrollPosition, setPosition] = useState({ x: 0, y: 0 });
@@ -23,7 +23,6 @@ export const useScrollPositions = () => {
 
   return scrollPosition;
 };
-
 interface NavMenuType {
   name: string;
   link: string;
@@ -33,20 +32,7 @@ const navMenu = [
   { name: "projects", link: "/projects" },
   { name: "contact", link: "/contact" },
 ];
-export function Logo(props: { size?: number }) {
-  const { size } = props
-  return (
-    <NextLink href="/">
-      <img
-        alt="logo"
-        src={"/logo.png"}
-        width={size ?? 48}
-        height={size ?? 48}
 
-      />
-    </NextLink>
-  );
-};
 
 function MainNav(props: { isMini?: boolean; }) {
   return (
@@ -78,17 +64,17 @@ function Navbar() {
     </nav>
   );
 }
-export function Footer() {
-  return (
-    <footer className="py-10 bg-primary/90">
-      <div>
-        <div className="flex items-center justify-center px-3 text-base text-white md:text-xl gap-x-4 md:gap-x-6">
-          {navMenu.map((nav) => (
-            <Link title={nav.name} href={nav.link} key={nav.name} type="nav" />
-          ))}
-        </div>
-      </div>
-    </footer>
-  );
-}
+// export function Footer() {
+//   return (
+//     <footer className="py-10 bg-primary/90">
+//       <div>
+//         <div className="flex items-center justify-center px-3 text-base text-white md:text-xl gap-x-4 md:gap-x-6">
+//           {navMenu.map((nav) => (
+//             <Link title={nav.name} href={nav.link} key={nav.name} type="nav" />
+//           ))}
+//         </div>
+//       </div>
+//     </footer>
+//   );
+// }
 export default Navbar;
