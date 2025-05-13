@@ -1,30 +1,8 @@
+import Brands from "@/components/brands";
 import Box from "@/components/elements/box";
 import { Heading, P, SectionTitle } from "@/components/elements/title";
 
-function Brands() {
-  const brandImages = [
-    {
-      name: "brand name",
-      url: "https://www.dummyimage.com/500x250/000/fff&text=brand+image"
-    },
-    {
-      name: "brand name",
-      url: "https://www.dummyimage.com/500x250/000/fff&text=brand+image"
-    },
-    {
-      name: "brand name",
-      url: "https://www.dummyimage.com/500x250/000/fff&text=brand+image"
-    },
-  ]
-  return (
-    <>
-      <h6>Brands We Work with</h6>
-      <div className="flex gap-4 flex-wrap px-8 md:px-12 py-24 justify-center items-center bg-gray-500">
-        {brandImages.map(brands => <img alt={brands.name} src={brands.url} loading="lazy" />)}
-      </div>
-    </>
-  )
-}
+
 export default function About() {
   return (
     <main>
@@ -101,7 +79,7 @@ export default function About() {
         </div>
         <div className="container mx-auto py-10">
           <Heading title={"Quality Assurance"} />
-          <P>At Kevank Nigeria Ltd., client satisfaction is paramount, built on consistently meeting specified quality standards through industry-leading assurance procedures. We deliver efficient construction, ensuring value for money while strictly adhering to project timelines and budgets. Our long-standing commitment to exceptional customer service and the strong reputation we've earned underscore our dedication to quality in every project.</P>
+          <P>At Kevank Nigeria Ltd., client satisfaction is paramount, built on consistently meeting specified quality standards through industry-leading assurance procedures. We deliver efficient construction, ensuring value for money while strictly adhering to project timelines and budgets. Our long-standing commitment to exceptional customer service and the strong reputation {"we've"}earned underscore our dedication to quality in every project.</P>
         </div>
         <div className="container mx-auto py-10">
           <Heading title={"Kevank: Building Your Vision, Managing Your Future"} subtitle={"Your Reliable Partner in Building and Beyond"} />
