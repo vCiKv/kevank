@@ -2,6 +2,7 @@
 import Box from "@/components/elements/box";
 import Image from "@/components/elements/image";
 import { SectionTitle } from "@/components/elements/title";
+import Gallery from "@/components/gallery";
 import { Avatar, CheckOne, EveryUser, Notepad, Timer } from "@icon-park/react";
 import { useState } from "react";
 import { twMerge } from "tailwind-merge";
@@ -220,9 +221,9 @@ function ProjectFacilities(props: { isHidden?: boolean }) {
   }
 }
 const stats = [
-  { text: "projects", value: "100+", icon: <Notepad size={28} className="text-accent" /> },
-  { text: "clients", value: "60+", icon: <Avatar size={28} className="text-accent" /> },
-  { text: "employees", value: "20+", icon: <EveryUser size={28} className="text-accent" /> },
+  { text: "projects", value: "100+", icon: <Notepad size={42} className="text-accent" /> },
+  { text: "clients", value: "60+", icon: <Avatar size={42} className="text-accent" /> },
+  { text: "employees", value: "20+", icon: <EveryUser size={42} className="text-accent" /> },
 ];
 
 export default function Page() {
@@ -238,36 +239,39 @@ export default function Page() {
       <section className="container mx-auto my-36">
         <SectionTitle title={"Our Projects"} center />
         <div>
-          <div className="grid items-stretch justify-start grid-cols-3 gap-1 my-10 md:grid-cols-3 flex-nowrap">
+          <div className="grid items-stretch justify-start grid-cols-1 md:grid-cols-3 gap-x-1 gap-y-3 my-10 flex-nowrap">
             {stats.map((stat) => (
-              <div key={stat.text} className="flex flex-col gap-2 text-center justify-center items-center">
+              <div key={stat.text} className="flex md:flex-row flex-col gap-2 justify-center items-center">
                 <span>{stat.icon}</span>
-                <span className="text-5xl font-black text-accent ">
-                  {stat.value}
-                </span>
-                <span className="text-xl font-medium uppercase">{stat.text}</span>
+                <div className="flex flex-col justify-center items-start">
+                  <span className="text-5xl font-black text-accent ">
+                    {stat.value}
+                  </span>
+                  <span className="text-xl font-medium uppercase">{stat.text}</span>
+                </div>
               </div>
             ))}
           </div>
         </div>
-        <div className="bg-white rounded-full w-4/5 mx-auto h-12">
+        <div>
+          <div className="bg-white rounded-full w-4/5 mx-auto h-12">
 
-          <div className="grid grid-cols-3 text-sm md:text-lg justify-center items-center h-full gap-1">
-            <button className={twMerge("h-full rounded-full px-2 hover:bg-primary/50 hover:text-white cursor-pointer", projectView === 1 ? activeClass : "")} onClick={() => updateProjectView(1)}>
-              Facilities Management
-            </button>
-            <button className={twMerge("h-full rounded-full px-2 hover:bg-primary/50 hover:text-white cursor-pointer", projectView === 2 ? activeClass : "")} onClick={() => updateProjectView(2)}>
-              Construction
-            </button>
-            <button className={twMerge("h-full rounded-full px-2 hover:bg-primary/50 hover:text-white cursor-pointer", projectView === 3 ? activeClass : "")} onClick={() => updateProjectView(3)}>
-              Real Estate
-            </button>
+            <div className="grid grid-cols-3 text-sm md:text-lg justify-center items-center h-full gap-1">
+              <button className={twMerge("h-full rounded-full px-2 hover:bg-primary/50 hover:text-white cursor-pointer", projectView === 1 ? activeClass : "")} onClick={() => updateProjectView(1)}>
+                Facilities Management
+              </button>
+              <button className={twMerge("h-full rounded-full px-2 hover:bg-primary/50 hover:text-white cursor-pointer", projectView === 2 ? activeClass : "")} onClick={() => updateProjectView(2)}>
+                Construction
+              </button>
+              <button className={twMerge("h-full rounded-full px-2 hover:bg-primary/50 hover:text-white cursor-pointer", projectView === 3 ? activeClass : "")} onClick={() => updateProjectView(3)}>
+                Real Estate
+              </button>
+            </div>
           </div>
+          <ProjectConstruction isHidden={projectView != 1} />
+          <ProjectFacilities isHidden={projectView != 2} />
         </div>
-
-        <ProjectConstruction isHidden={projectView != 1} />
-        <ProjectFacilities isHidden={projectView != 2} />
-
+        <Gallery />
       </section>
     </main>
   );
