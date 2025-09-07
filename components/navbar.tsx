@@ -37,15 +37,17 @@ interface NavMenuType {
 }
 const navMenu = [
   { name: "about", link: "/about" },
-  {
-    name: "services",
-    link: "#",
-    subLink: [
-      { name: "services", link: "/services" },
-      { name: "projects", link: "/projects" },
-      { name: "gallery", link: "/gallery" },
-    ]
-  },
+  { name: "projects", link: "/projects" },
+
+  // {
+  //   name: "services",
+  //   link: "#",
+  //   subLink: [
+  //     { name: "services", link: "/services" },
+  //     { name: "projects", link: "/projects" },
+  //     { name: "gallery", link: "/gallery" },
+  //   ]
+  // },
   { name: "contact", link: "/contact" },
 ];
 

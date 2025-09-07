@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Logo from "./logo"
-import { companyAddress } from "./companyDetails";
+import { companyAddress, companyContact } from "./companyDetails";
 // import { default as CustomLink } from "@/components/elements/link";
 
 
@@ -33,42 +33,56 @@ export default function SiteFooter() {
               <div className="flex items-start space-x-3">
                 {/* <MapPin className="h-5 w-5 text-amber-500 mt-0.5" /> */}
                 <span className="text-slate-300">
-                  {companyAddress.line1}
-                  <br />
-                  Building Heights, Suite 500
-                  <br />
-                  {companyAddress.line3}
+                  {companyAddress.addr1}
+                  <br /><br />
+                  {companyAddress.addr2}
                 </span>
               </div>
 
-              {/* <div className="flex items-center space-x-3">
-                {/* <Phone className="h-5 w-5 text-amber-500" /> 
-                <span className="text-slate-300">(555) 123-4567</span>
-              </div> */}
+              <div className="flex items-center space-x-3">
+                {/* {/* <Phone className="h-5 w-5 text-amber-500" />  */}
+                <span className="text-slate-300">{companyContact.phone[0]}, {companyContact.phone[2]} </span>
+              </div>
 
               <div className="flex items-center space-x-3">
                 {/* <Mail className="h-5 w-5 text-amber-500" /> */}
-                <span className="text-slate-300">info@buildmaster.com</span>
+                <span className="text-slate-300">{companyContact.infoEmail}</span>
               </div>
             </div>
 
             <div>
+              <h3 className="text-lg font-semibold text-white mb-4">Business Hours</h3>
+              <ul className="space-y-2 text-sm">
+                <li className="flex justify-between">
+                  <span className="text-slate-400">Monday - Friday:</span>
+                  <span className="text-slate-300">8:00 AM - 6:00 PM</span>
+                </li>
+                <li className="flex justify-between">
+                  <span className="text-slate-400">Saturday:</span>
+                  <span className="text-slate-300">9:00 AM - 2:00 PM</span>
+                </li>
+                <li className="flex justify-between">
+                  <span className="text-slate-400">Sunday:</span>
+                  <span className="text-slate-300">Closed</span>
+                </li>
+              </ul>
+            </div>
+            {/* <div>
               <h4 className="text-white font-medium mb-3">Certifications</h4>
               <div className="flex flex-wrap gap-3">
-                <div className="bg-slate-800/50 backdrop-blur-sm p-2 rounded-md flex items-center space-x-2 border border-slate-700/50">
-                  {/* <Award className="h-4 w-4 text-amber-500" /> */}
-                  <span className="text-xs text-slate-300">ISO Certified</span>
-                </div>
-                <div className="bg-slate-800/50 backdrop-blur-sm p-2 rounded-md flex items-center space-x-2 border border-slate-700/50">
-                  {/* <CheckCircle className="h-4 w-4 text-amber-500" /> */}
-                  <span className="text-xs text-slate-300">LEED Certified</span>
-                </div>
-                <div className="bg-slate-800/50 backdrop-blur-sm p-2 rounded-md flex items-center space-x-2 border border-slate-700/50">
-                  {/* <Award className="h-4 w-4 text-amber-500" /> */}
-                  <span className="text-xs text-slate-300">Best in Class 2023</span>
-                </div>
-              </div>
-            </div>
+                {[
+                    "ISO Certified",
+                    "LEED Certified",
+                    "Best in Class 2023"
+                  ].map((cert =>
+                    <div key={cert} className="bg-slate-800/50 backdrop-blur-sm p-2 rounded-md flex items-center space-x-2 border border-slate-700/50">
+                      <span className="text-xs text-slate-300">{cert}</span>
+                    </div>
+
+                  ))
+                }
+              </div> 
+            </div>*/}
           </div>
 
           <div>
@@ -105,10 +119,10 @@ export default function SiteFooter() {
                 {[
                   ["Home", "/"],
                   ["About Us", "/about"],
-                  ["Services", "/services"],
+                  // ["Services", "/services"],
                   ["Projects", "/projects"],
                   ["Contact", "/contact"],
-                  ["Careers", "/careers"],
+                  // ["Careers", "/careers"],
                   // ["FAQ", "/faq"],
                 ].map(([label, url], index) => (
                   <li key={index}>
@@ -124,23 +138,7 @@ export default function SiteFooter() {
               </ul>
             </div>
 
-            <div>
-              <h3 className="text-lg font-semibold text-white mb-4">Business Hours</h3>
-              <ul className="space-y-2 text-sm">
-                <li className="flex justify-between">
-                  <span className="text-slate-400">Monday - Friday:</span>
-                  <span className="text-slate-300">8:00 AM - 6:00 PM</span>
-                </li>
-                <li className="flex justify-between">
-                  <span className="text-slate-400">Saturday:</span>
-                  <span className="text-slate-300">9:00 AM - 2:00 PM</span>
-                </li>
-                <li className="flex justify-between">
-                  <span className="text-slate-400">Sunday:</span>
-                  <span className="text-slate-300">Closed</span>
-                </li>
-              </ul>
-            </div>
+
           </div>
 
           <div className="space-y-8">
@@ -162,9 +160,8 @@ export default function SiteFooter() {
 
         <div className="relative backdrop-blur-sm bg-slate-900/30 rounded-xl p-6 border border-slate-800/30">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="text-slate-400 text-sm">© {currentYear} BuildMaster Construction. All rights reserved.</div>
-
-            <div className="flex flex-wrap gap-x-6 gap-y-2 justify-start md:justify-end text-sm">
+            <div className="text-slate-400 text-sm">© {currentYear} Kevank Nigerian LTD. All rights reserved.</div>
+            {/* <div className="flex flex-wrap gap-x-6 gap-y-2 justify-start md:justify-end text-sm">
               <Link href="/privacy-policy" className="text-slate-400 hover:text-primary transition-colors">
                 Privacy Policy
               </Link>
@@ -177,11 +174,11 @@ export default function SiteFooter() {
               <Link href="/sitemap" className="text-slate-400 hover:text-primary transition-colors">
                 Sitemap
               </Link>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
-    </footer>
+    </footer >
   )
 }
 

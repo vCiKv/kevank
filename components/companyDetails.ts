@@ -1,10 +1,10 @@
 export const companyAddress = {
-  line1: "123 Construction Avenue",
-  line2: "",
-  line3: "Lagos, Nigeria."
+  addr1: "14 Amara Olu Street,off Lateef Jakande Road, By Zenith Bank Agidingbi P.M.B. 21820 Ikeja Lagos.",
+  addr2: "51A, Emekulu Lane, Dline, Garrisson,Port-Harcourt, Rivers State."
 }
-const companyEmails = {
-  info: "",
-  support: "",
-  careers: ""
+export const companyContact = {
+  infoEmail: "",
+  supportEmail: "",
+  careers: "",
+  phone: ["08091165917", "01-7630923", "08033224088"]
 }

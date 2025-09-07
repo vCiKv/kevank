@@ -42,7 +42,7 @@ function FloatingBlob({
   return (
     <div className="w-full max-w-screen">
       <div
-        className={"-z-50 animate-slowRotate fixed overflow-hidden bg-gradient-to-l from-purple-600 to-sky-800 rounded-full md:size-[250px] size-[100px]"}
+        className={"-z-50 animate-slowRotate fixed overflow-hidden bg-gradient-to-l from-purple-600/60 to-sky-800/70 rounded-full md:size-[250px] size-[100px]"}
         style={{
           transform: `translate(${-50}%,${-50}%)`,
           left: x + "px",

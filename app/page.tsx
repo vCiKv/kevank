@@ -10,6 +10,7 @@ import { CheckCorrect, Down } from "@icon-park/react";
 import Input, { Textarea } from "@/components/elements/input";
 const inter = Inter({ subsets: ["latin"] });
 function OurServices() {
+  //todo change heading text color
   const [currentService, setCurrentService] = useState(0)
   const [showSelector, setShowSelector] = useState(false)
   const toggleSelector = () => {
@@ -270,12 +271,12 @@ function GetQuote() {
 function HeroTitle() {
   return (
     <div className="pl-10 md:pl-20">
-      <div className="flex flex-col">
+      <div className="flex flex-col gap-y-4">
         <Logo size={128} />
-        <div>
+        <div className="bg-white/20 backdrop-blur-xs max-w-sm rounded-xl p-3.5">
           <h1
             className={
-              "text-accent mt-3 mb-1 text-xl font-medium -tracking-wider"
+              "text-accent mt-3 mb-1 text-3xl font-medium -tracking-wider"
             }
           >
             KEVANK NIGERIA LIMITED
@@ -314,7 +315,7 @@ export default function Home() {
           </div>
           <div className="flex flex-wrap justify-center gap-12 p-6 md:justify-between md:flex-row-reverse">
             <div className="text-right text-white flex flex-col gap-4">
-              <div className="flex-col gap-4 bg-black/15 rounded-xl p-6">
+              <div className="flex-col gap-4 bg-black/15 rounded-xl p-6 backdrop-blur-xs">
                 <p className="text-sm font-semibold">Design. Create. Deliver</p>
                 <h4 className="text-6xl font-black">100+</h4>
                 <h6 className="text-xl capitalize">completed projects</h6>

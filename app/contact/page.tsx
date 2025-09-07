@@ -1,4 +1,5 @@
 "use client"
+import { companyAddress, companyContact } from "@/components/companyDetails";
 import Input, { Textarea } from "@/components/elements/input";
 import { SectionTitle } from "@/components/elements/title";
 import { useState } from "react";
@@ -128,11 +129,11 @@ function ContactInfo() {
             <div>
               <h3 className="font-medium text-slate-200">Our Location</h3>
               <p className="text-slate-400 mt-1">
-                123 Construction Avenue
+                {companyAddress.addr1}
                 <br />
-                Building Heights, Suite 500
+
                 <br />
-                San Francisco, CA 94103
+                {companyAddress.addr2}
               </p>
             </div>
           </div>
@@ -144,11 +145,10 @@ function ContactInfo() {
             <div>
               <h3 className="font-medium text-slate-200">Phone</h3>
               <p className="text-slate-400 mt-1">
-                Main: (555) 123-4567
+                Main: {companyContact.phone[0]}
                 <br />
-                Support: (555) 765-4321
-                <br />
-                Fax: (555) 987-6543
+                Support: {companyContact.phone[2]}
+
               </p>
             </div>
           </div>
@@ -160,11 +160,7 @@ function ContactInfo() {
             <div>
               <h3 className="font-medium text-slate-200">Email</h3>
               <p className="text-slate-400 mt-1">
-                info@buildmaster.com
-                <br />
-                support@buildmaster.com
-                <br />
-                careers@buildmaster.com
+                {companyContact.infoEmail}
               </p>
             </div>
           </div>
@@ -185,9 +181,9 @@ function ContactInfo() {
             </div>
           </div>
         </div>
-        <div className="flex items-center space-x-4">
+        {/* <div className="flex items-center space-x-4">
           <div className="bg-amber-900/30 p-3 rounded-full">
-            {/* <Globe className="h-6 w-6 text-primary" /> */}
+            <Globe className="h-6 w-6 text-primary" />
           </div>
           <div>
             <h3 className="font-medium text-slate-200">Social Media</h3>
@@ -235,7 +231,7 @@ function ContactInfo() {
               </a>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   )
@@ -250,7 +246,7 @@ export default function Contact() {
           <ContactInfo />
           <ContactForm />
         </div>
-        <MapLocation />
+        {/* <MapLocation /> */}
       </section>
     </main>
   );
