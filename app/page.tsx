@@ -330,7 +330,7 @@ export default function Home() {
               </div>
               <p className="pb-5 text-lg leading-relaxed">
                 We design, create, and deliver innovative engineering solutions
-                to the energy, constriction, real estate and other industrial sectors.
+                to the energy, construction, real estate and other industrial sectors.
               </p>
               <Link href={"/about"} title={"learn more"} />
             </Box>
