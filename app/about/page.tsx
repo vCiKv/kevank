@@ -41,7 +41,7 @@ export default function About() {
             works.
           </P>
         </div>
-        <div className="py-16 md:py-32 bg-[url('/img/about1.jpg')] bg-cover bg-center bg-fixed">
+        <div className="py-16 md:py-32 bg-[url('/img/about1.webp')] bg-cover bg-center bg-fixed">
           <div className="flex flex-wrap justify-around gap-2 ">
             <Box className="bg-white/50  duration-300 ease-in w-full md:w-[40%] hover:bg-primary hover:border-primary hover:from-transparent hover:to-transparent hover:text-white">
               <div>

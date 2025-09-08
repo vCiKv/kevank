@@ -39,7 +39,7 @@ const Hero = () => {
             <HeroTitle title={"KEVANK NIGERIA LIMITED"} className="pl-32 mt-32" subtitle={"meet your requirement and surpass your expectation"} />
           </div>
           <div className="relative w-2/5 opacity-50 -z-10 hover:opacity-100">
-            <Image src="/img/bw.jpg" className="object-cover w-2/5 rounded-l-md" />
+            <Image src="/img/bw.webp" className="object-cover w-2/5 rounded-l-md" />
           </div>
         </div>
       </div>
@@ -55,7 +55,7 @@ const HeroV1 = () => {
             <HeroTitle title={"KEVANK NIGERIA LIMITED"} className="pl-32 mt-32" subtitle={"meet your requirement and surpass your expectation"} />
           </div>
           <div className="relative w-2/5 opacity-50 -z-10 hover:opacity-100">
-            <Image src="/img/bw.jpg" className="object-cover w-2/5 rounded-l-md" />
+            <Image src="/img/bw.webp" className="object-cover w-2/5 rounded-l-md" />
           </div>
         </div>
       </div>
