@@ -3,12 +3,12 @@ import { twMerge } from "tailwind-merge"
 export default function Brands() {
   const brandImages = [
     {
-      name: "zone 4",
+      name: "Zone4",
       url: "/brands/zone4.png",
       isSquare: true,
     },
     {
-      name: "ecobank",
+      name: "Ecobank",
       url: "/brands/ecobank.png"
     },
     {
@@ -21,13 +21,20 @@ export default function Brands() {
       url: "/brands/aarano.png",
     },
     {
-      name: "FIRST BANK OF NIGERIA",
-      url: "/brands/firstbank.png"
-    },
-
-    {
-      name: "fidelity",
+      name: "Fidelity Bank",
       url: "/brands/fidelity.svg"
+    },
+    {
+      name: "Airtel",
+      url: "/brands/airtel.svg"
+    },
+    {
+      name: "CONOIL plc",
+      url: "/brands/conoil.png"
+    },
+    {
+      name: "Genesis Group",
+      url: "/brands/genesis.webp"
     },
   ]
   return (
