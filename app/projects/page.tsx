@@ -73,7 +73,7 @@ function ProjectConstruction(props: { isHidden?: boolean }) {
     // {
     //   title: "Title-2",
     //   location: "Lugbe, Abuja",
-    //   images: ["/img/kvk.png",],
+    //   images: null,
     //   paragraph:
     //     "Construction of 15 units of fully detached houses at Nigerian union of teachers (NUT) Estate, Lugbe,  Abuja",
     //   tag: ["civil construction"],

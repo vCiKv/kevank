@@ -37,6 +37,8 @@
   --color-primary:#B02A2B;
   --color-accent:#0A2647;
   --shadow-link:#0A2647 -8px 8px;
+  --shadow-link-sm:#0A2647 -4px 4px;
+
   /* --box-shadow-link-hover:box-shadow: #0A2647 -8px 8px; */
 
   --font-ApfelGrotezk: "ApfelGrotezk", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; 

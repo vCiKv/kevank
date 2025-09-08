@@ -12,7 +12,7 @@ const inter = Inter({ subsets: ["latin"] });
 function OurServices() {
   //todo change heading text color
   const [currentService, setCurrentService] = useState(0)
-  const [showSelector, setShowSelector] = useState(false)
+  const [showSelector, setShowSelector] = useState(true)
   const toggleSelector = () => {
     setShowSelector(p => !p)
   }
@@ -39,7 +39,7 @@ function OurServices() {
       <div className="grid justify-center grid-cols-1 gap-x-4 gap-y-8 py-12 md:grid-cols-2 lg:grid-cols-3">
         <div className="flex flex-col gap-4 ">
           <Box className="bg-primary/90 text-white capitalize text-md p-4 md:hidden block cursor-pointer" >
-            <div onClick={toggleSelector} className="flex flex-nowrap justify-between h-full w-full">
+            <div onClick={toggleSelector} className="flex flex-nowrap justify-between h-full w-full items-center">
               <div className="flex gap-1.5">
                 <span className="flex flex-nowrap">
                   —{"   "}0{currentService + 1}
@@ -48,12 +48,12 @@ function OurServices() {
                   {ourServices[currentService].title}
                 </span>
               </div>
-              <span >
-                <Down />
+              <span className={(showSelector ? "rotate-180" : "rotate-0")}>
+                <Down size={24} />
               </span>
             </div>
           </Box>
-          <Box className={twMerge("bg-primary/90 text-white capitalize text-md md:block md:h-full", showSelector ? "block" : "hidden")}>
+          <Box className={twMerge("bg-primary/85 text-white capitalize text-md md:block md:h-full", showSelector ? "block" : "hidden")}>
             <menu className="flex flex-col items-start justify-between h-full gap-2 py-6 md:py-16 ">
               {ourServices.map((services, index) => (
                 <li
@@ -306,7 +306,7 @@ export default function Home() {
 
   return (
     <main>
-      <div className="bg-[url('/img/bw.jpg')] bg-cover bg-center bg-no-repeat min-w-screen min-h-screen w-screen h-full bg-scroll">
+      <div className="bg-[url('/img/bw.webp')] bg-cover bg-center bg-no-repeat min-w-screen min-h-screen w-screen h-full bg-scroll">
         <div className="container mx-auto w-full pb-16">
           <div className="flex pt-40">
             <div className="w-3/5">
